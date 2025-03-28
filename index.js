@@ -4,6 +4,7 @@ let display = document.querySelector(".display");
 let s = "";
 buttons.forEach(element => {
   element.addEventListener("click",()=>{
+    rem.disabled = false;
     display.innerText = display.innerText + element.innerText;
      s = display.innerText;
      opEnalble();
@@ -14,6 +15,7 @@ let operator = document.querySelectorAll(".operator");
 operator.forEach(op=>{
   op.addEventListener("click",()=>{
      point.disabled = false;
+     rem.disabled = true;
     display.innerText = display.innerText+op.innerText;
     if(op.innerText=="*" || op.innerText == "/"){
       opDisable1();
@@ -65,4 +67,9 @@ let equal = document.querySelector(".equal");
 equal.addEventListener("click",()=>{
   const result = safeEval(s); 
   display.innerText = result;
+})
+
+let rem = document.querySelector(".Rem");
+rem.addEventListener("click",()=>{
+  rem.disabled= true;
 })

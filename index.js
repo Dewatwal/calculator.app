@@ -13,6 +13,7 @@ buttons.forEach(element => {
 let operator = document.querySelectorAll(".operator");
 operator.forEach(op=>{
   op.addEventListener("click",()=>{
+     point.disabled = false;
     display.innerText = display.innerText+op.innerText;
     if(op.innerText=="*" || op.innerText == "/"){
       opDisable1();
@@ -40,8 +41,10 @@ const opEnalble = ()=>{
  })
 }
 
-let point = document.querySelector(".point").addEventListener("click",()=>{
+let point = document.querySelector(".point");
+point.addEventListener("click",()=>{
   opDisable2();
+  point.disabled = true;
 })
 
 
@@ -60,6 +63,6 @@ function safeEval(expr) {
 
 let equal = document.querySelector(".equal");
 equal.addEventListener("click",()=>{
-  const result = safeEval(s); // 14
+  const result = safeEval(s); 
   display.innerText = result;
 })
